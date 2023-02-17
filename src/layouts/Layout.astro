@@ -1,0 +1,58 @@
+---
+export interface Props {
+  title: string;
+  favicon: string;
+  icon: string;
+  commonjs: string;
+}
+
+const { title, favicon, icon, commonjs } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content="" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="robots" content="index,follow" />
+    <meta name="robots" content="noindex" />
+    <meta name="subject" content="" />
+    <link rel="icon" sizes="192x192" href={icon} />
+    <link rel="apple-touch-icon" href={icon} />
+    <link rel="mask-icon" href={icon} color="blue" />
+    <meta property="fb:app_id" content="123456789" />
+    <meta property="og:url" content="https://example.com/page.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Content Title" />
+    <meta property="og:image" content="https://example.com/image.jpg" />
+    <meta property="og:image:alt" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="article:author" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@site_account" />
+    <meta name="twitter:creator" content="@individual_account" />
+    <meta name="twitter:url" content="https://example.com/page.html" />
+    <meta name="twitter:title" content="Content Title" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="https://example.com/image.jpg" />
+    <meta name="twitter:image:alt" content="" />
+    <meta name="twitter:dnt" content="on" />
+    <slot name="javascript" />
+    <script src={commonjs} defer></script>
+  </head>
+  <body>
+    <slot name="header" />
+    <slot name="body" />
+    <slot name="footer" />
+  </body>
+</html>
+<style is:global>
+  /* ここはis:globalがついていますので、全ページに反映されるCSSを記述する場合に使います。今回はsassで賄いますので使わない想定です。 */
+</style>

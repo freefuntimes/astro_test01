@@ -1,0 +1,24 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<li class="link-card">
+  <a href={href}>
+    <h2>
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p>
+      {body}
+    </p>
+  </a>
+</li>
+<style>
+  /* ここにこのページだけで使うCSSを記述する場合に使いますが、今回はsassでまかないますので使わない想定です。 */
+</style>

@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
+import img1 from "../../public/images/img1.jpg";
+import "../sass/style.scss";
+---
+
+<Layout
+  title="TOPページ"
+  favicon="./images/favicon.svg"
+  icon="./images/apple-touch-icon.png"
+  commonjs="./js/common.js"
+>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.5/swiper-bundle.min.js"
+    slot="javascript"
+  ></script>
+  <script src="./js/top.js" defer slot="javascript"></script>
+  <Header slot="header" />
+  <main slot="body">
+    <h1>トップページ</h1>
+    <h2>Astroの環境構築（html/sass/javascript）</h2>
+    <p class="instructions">
+      今回はReactやVueなどは使わずに環境構築をしてみました。
+    </p>
+    <h3>
+      共通パーツを読み込ませる、かつ共通パーツの一部を異なるテキストで出力する
+    </h3>
+    <ul role="list" class="link-card-grid">
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+      <Card
+        href="https://astro.build/integrations/"
+        title="Integrations"
+        body="Supercharge your project with new frameworks and libraries."
+      />
+      <Card
+        href="https://astro.build/themes/"
+        title="Themes"
+        body="Explore a galaxy of community-built starter themes."
+      />
+      <Card
+        href="https://astro.build/chat/"
+        title="Community"
+        body="Come say hi to our amazing Discord community. ❤️"
+      />
+    </ul>
+    <h3>通常のパス対応</h3>
+    <p><img src="./images/img1.jpg" alt="画像" /></p>
+    <h3>importで読み込む対応</h3>
+    <p><img src={img1} alt="画像" /></p>
+    <h3>pictureタグで出し分けた場合の通常のパス対応</h3>
+    <picture>
+      <source srcset="./images/img_pc.jpg" media="(min-width: 767px)" />
+      <img src="./images/img_sp.jpg" alt="画像" />
+    </picture>
+    <p><a href="./about/">ABOUTページへ</a></p>
+  </main>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  /* ここにはTOPページだけで読み込みたいCSSを割り当てられますが、基本てきにはsassでまかなえるので使わない想定です。 */
+</style>

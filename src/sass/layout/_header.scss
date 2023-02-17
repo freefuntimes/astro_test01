@@ -1,0 +1,12 @@
+@use "../global" as *;
+
+header {
+  background-color: #ccc;
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  p {
+    font-size: 40px;
+    color: #000;
+  }
+}
